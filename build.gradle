@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.olyno.skent'
-version = '3.4.0'
+version = '3.5'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -13,6 +13,7 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
     compileOnly 'com.github.SkriptLang:Skript:2.11.2'
     compileOnly 'com.github.Olyno:skript-migrate:51f0618a'
+	implementation 'org.jetbrains:annotations:24.0.0'
 
     implementation 'net.lingala.zip4j:zip4j:2.11.5'
     implementation 'io.methvin:directory-watcher:0.18.0'
