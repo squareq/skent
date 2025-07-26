@@ -44,9 +44,12 @@ public class EffDuplicateFileDir extends AsyncEffect {
 		try {
 			for (Path sourceFile : sourceFiles) {
 				if (Files.exists(sourceFile)) {
-					Path trimPath = sourceFile.getParent().relativize(sourceFile); //Remove parent path from source file.
-					Path duplicated = targetFile.resolve(trimPath); //Append parent location of target to the source file, creating an accurate "duplicate".
-					if(!targetFile.toFile().exists()){
+					Path trimPath = sourceFile.getParent() != null ? sourceFile.getParent().relativize(sourceFile) : sourceFile; //Remove parent path from source file.
+					Path duplicated = targetFile.resolve((!trimPath.equals(sourceFile)) ? trimPath : sourceFile); //Append parent location of target to the source file, creating an accurate "duplicate".
+					if (!duplicated.toFile().exists()) {
+						Files.createDirectories(duplicated);
+					}
+					if (!targetFile.toFile().exists()) {
 						targetFile.toFile().createNewFile();
 					}
 					Files.copy(sourceFile, duplicated, StandardCopyOption.REPLACE_EXISTING);
