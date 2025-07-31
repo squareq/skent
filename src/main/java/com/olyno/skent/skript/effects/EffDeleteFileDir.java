@@ -43,7 +43,7 @@ public class EffDeleteFileDir extends AsyncEffect {
 
     static {
         registerAsyncEffect(EffDeleteFileDir.class,
-            "delete %path%"
+            "delete path %path%"
         );
     }
 

@@ -44,7 +44,7 @@ public class EffInsertLine extends AsyncEffect {
 
     static {
         registerAsyncEffect(EffInsertLine.class,
-            "insert %strings% at line %number% of %path%"
+            "insert %strings% at line %number% of path %path%"
         );
     }
 
